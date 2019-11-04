@@ -1,0 +1,777 @@
+/*= Ticket Buddy
+/*= Mobile First CSS
+/*= by Daniel Simms
+
+/*==============================*/
+/*= GLOBAL
+/*==============================*/
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+body {
+	font-family: 'Lato', sans-serif;
+	background-color: #333; /* Dark Grey */
+}
+hr{
+	margin: 30px 20px 0 20px;
+}
+
+
+a.button{
+	height: 100%;
+	background-color: #52529b; /* Purple */
+	color: white;
+	border: 1px solid transparent; /* Purple */
+	text-align: center;
+	text-decoration: none;
+	padding: 0 10px;
+}
+a.button:hover{
+	background-color: #faeb56; /* Yellow */
+	color: black;
+	border: 1px solid transparent;
+	transition: .3s;
+}
+a.yellow-button{
+	background-color: #faeb56; /* Yellow */
+	color: black;
+	border: 1px solid transparent;
+
+}
+a.yellow-button:hover{
+	background-color: #52529b; /* Purple */
+	color: white;
+	transition: .3s;
+}
+
+/* Main Background */
+.homepage-bg{
+	position: fixed;
+	width: 130vw;
+	height: 130vh;
+	top: -50px;
+	left: -50px;
+	z-index: -1;
+	background-image: url(../img/bg/crowd-bg3.jpg);
+	background-size: cover;
+	background-position: center bottom;
+	-webkit-filter: blur(15px);
+	-moz-filter: blur(15px);
+	-o-filter: blur(15px);
+	-ms-filter: blur(15px);
+	filter: blur(15px);
+}
+/* Blue overlay for the main background */
+.homepage-bg::after{
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+    background-color: cyan;
+    opacity: .12;
+}
+/* Hides background on mobile for loading times */
+#homepage-bg-hide{
+	display: none;
+}
+/* Sitemap */
+ul#site-map{
+	margin-left: 20px;
+}
+ul#site-map * a{
+	line-height: 1.5em;
+	color: white;
+}
+ul#site-map ul li{
+ 	margin-left: 20px;
+}
+ul#site-map ul ul li{
+ 	margin-left: 40px;
+}
+/*==============================*/
+/*= FIXES
+/*==============================*/
+*{box-sizing: border-box;}
+.clear{clear: both;}
+/* Remove input border styling */
+textarea, input{ border-radius: 0; }
+textarea:focus, input:focus{ outline: none; }
+
+/*==============================*/
+/*= NAVBAR
+/*==============================*/
+.navbar{
+	width: 100%;
+	height: 60px; /* Same as .navbar li{ line-height } */
+	color: white;
+	position: fixed;
+	z-index: 999;
+}
+.navbar li{
+	display: inline-block;
+	line-height: 60px; /* Same as .navbar{ height } */
+}
+.navbar li a{
+	color: white;
+	text-decoration: none;
+	border-bottom: 1px solid white;
+}
+.navbar li:first-of-type{
+	border-top: 1px solid white;
+}
+/* Navbar Right */
+.navbar-right{
+	float: right;
+	margin-right: 15px;
+}
+.navbar-black{
+	background-color: rgba(0, 0, 0, 0.5); /* Black */
+}
+/* Navbar Left */
+.navbar-left{
+	position: absolute;
+	float: left;
+	margin-left: 10px;
+	z-index: 99999999;
+}
+/* Navbar Logo */
+.navbar-left img{
+	padding: 10px 5px 10px 0;
+	height: 60px;
+	float: left;
+}
+.navbar-left h1{
+	float: left;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	letter-spacing: 1px;
+	font-weight: 900;
+	margin-top: 14px;
+}
+.navbar-left h1 span{
+	display: block;
+	font-size: .6em;
+	font-weight: 400;
+	letter-spacing: 6.3px;
+	margin-left: 2.5px;
+}
+
+/* Collapsable Menu */
+#checkbox-toggle{
+	display: none;
+}
+#burger-menu{
+	position: absolute;
+	font-size: 2em;
+	line-height: 60px;
+	z-index: 999900009;
+	right: 15px;
+}
+.menu{
+	width: 100%;
+	position: fixed;
+	background-color: rgba(0, 0, 0, .9); /* Black */
+	right: -200vw;
+	height: 100vh;
+	top: 0;
+}
+.menu ul{
+	margin-top: 60px;
+}
+.menu ul li{
+	width: 100%;
+}
+.menu ul li a{
+	display: block;
+	width: 100%;
+	padding-left: 20px;
+}
+.menu ul hr{
+	margin: 10px 20px;
+}
+/* Search Bar Menu */
+.menu .search{
+	position: relative;
+	padding: 0 20px;
+}
+input[type=checkbox]:checked ~ .menu{ 
+	right: 0;
+	transition: .3s ease-out;
+}	
+
+/*==============================*/
+/*= SEARCH BAR
+/*==============================*/
+.search{
+	height: 40px; /* Same as .search-button{ line-height } */
+}
+.search input[type="text"]::placeholder{
+	color: #cdcdcd; /* Grey */
+}
+.search input[type="text"]{
+	height: 100%;
+	width: 70%;
+	float: left;
+	padding-left: 15px;
+	border: none;
+}
+.search input[type="text"]:focus{
+	outline: 1px solid #52529b; /* Purple */
+}
+
+/*==============================*/
+/*= HOMEPAGE
+/*==============================*/
+#homepage-wrapper{
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 60px;
+	color: white;
+}
+/* Logo */
+#homepage-logo{
+	width: 100%;
+	text-align: center;
+}
+#homepage-logo img{
+	width: 45%;
+}
+#homepage-logo h1{
+	font-size: 2.8em;
+	font-weight: 900;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	margin: 5px 0 30px 0;
+}
+#homepage-logo h1 span{
+	display: block;
+	font-weight: 400;
+	font-size: .7em;
+	letter-spacing: 10.4px;
+	margin-left: 4px;
+	margin-top: -5px;
+}
+/* Search Bar */
+#homepage-search{
+	text-align: center;
+}
+#homepage-search h2{
+	font-size: 1.1em;
+	margin: 20px 0 5px 0;
+}
+#homepage-search p{
+	margin: 0;
+}
+a#homepage-button{
+	width: 30%;
+	float: left;
+	line-height: 40px; /* Same as .search{ height } */
+}
+
+/*==============================*/
+/*= PAGE TEMPLATE
+/*==============================*/
+.main-wrapper{
+	width: 100%;
+	background-color:white;
+	position: relative;
+	top: 60px;
+}
+.main-wrapper h1{
+	font-size: 2em;
+	margin: 20px 10px 10px 10px;
+	color: #52529b; /* Purple */
+}
+.main-wrapper h1 span{
+	font-size: .7em;
+	color: #52529b; /* Purple */
+}
+.main-wrapper h1 + h2{
+	font-size: 1.3em;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+/* Banner */
+.header{
+	height: 30vh;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+}
+
+/*==============================*/
+/*= SEARCH RESULTS
+/*==============================*/
+#search-header{
+	background-image: url(../img/bands/enter-shikari-banner.jpg);
+}
+.search-result a{
+	color: black;
+	display: block;
+}
+.search-result-item{
+	border-top: 1px solid #dedede; /* Grey */
+	padding: 20px 0;
+	margin-top: -1px; /* Fix repeating border */
+}
+/* Every other result is grey */
+.search-result a:nth-child(even){
+	background-color: #f6f6f6; /* Grey */
+	display: block;
+}
+.search-result-item:last-of-type{
+	border-bottom: 1px solid #dedede; /* Grey */
+}
+.search-result-item-date{
+	float: left;
+	text-align: center;
+	padding: 0 15px;
+	/* spacer */
+	border-right: 1px solid #dedede; /* Grey */
+}
+/* Day of the week */
+.search-result-item-date span{ 
+	display: block;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #52529b; /* Purple */
+}
+/* Date of the month */
+.search-result-item-date p{
+	display: block;
+}
+.search-result-item-info{
+	float: left;
+	padding: 0 15px;
+	/* spacer */
+	border-right: 1px solid #dedede; /* Grey */
+}
+.search-result-item-info span{
+	color: #52529b; /* Purple */
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.search-result-item-buddies{
+	float: left;
+	padding: 0 15px;
+}
+.search-result-item-buddies span{
+	color: #52529b; /* Purple */
+	font-size: 1.1em;
+	font-weight: bold;
+	display: 
+	block;
+	margin-right: 5px;
+}
+
+/*==============================*/
+/*= USER LIST
+/*==============================*/
+.users-list{
+	/* move to the right due to padding from each user */
+	position: relative;
+	left: 10px;
+}
+.users-list-user-wrap{
+	float: left;
+	width: 50%;
+}
+.users-list-user{
+	width: 50%;
+	text-align: center;
+	float: left;
+	box-sizing: border-box;
+	padding: 0 20px 10px 0;
+}
+.users-list-user img{
+	width: 100%;
+	height: 100%;
+}
+.users-list-user a{
+	text-decoration: none;
+}
+.users-list-user a p{
+	color: black;
+}
+.users-list-user h2{
+	color: #52529b; /* Purple */
+	font-weight: bold;
+	padding: 5px;
+}
+
+/*==============================*/
+/*= PROFILE 
+/*==============================*/
+#profile-wrapper{
+	padding: 0 20px 10px 20px;
+}
+#profile-header{
+	background-image: url(../img/users/cover/1.jpg);
+}
+#profile-img{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+/* User Information  */
+#profile-img img{
+	border: 4px solid white;
+	border-radius: 50%;
+}
+#profile-name{
+	margin-top: 70px;
+	text-align: center;
+}
+#profile-desc{
+	text-align: center;
+}
+#profile-about{
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+#profile-about p{
+	line-height: 1.5em;
+	text-align: center;
+}
+/* User Follow + Request buttons */
+#profile-buttons{
+	width: 80%;
+	margin: 0 auto;
+}
+#profile-button{
+	padding: 10px 0;
+	width: 50%;
+	float: left;
+	display: inline-block;
+	position: relative;
+}
+#profile-button i{
+	padding-right: 5px;
+}
+
+/* Profile Content */
+#profile-wrapper h3{
+	font-size: 1.3em;
+	color: #52529b; /* Purple */
+	margin: 20px 0 10px 0;
+}
+/* Favourite Artist List */
+#profile-wrapper ul{
+	margin-bottom: 20px;
+}
+#profile-wrapper li{
+	display: inline;
+	line-height: 1.5em;
+}
+#profile-wrapper li::after{
+	content: ',';
+	padding-right: 5px;
+}
+#profile-wrapper li:last-of-type::after{
+	content: '.';
+}
+
+/* Upcoming Event */
+.profile-upcoming-wrapper{
+	margin: 15px 0 10px 0;
+}
+.profile-upcoming-event-img{
+	height: 200px;
+	margin-bottom: 15px;
+	background-size: cover;
+	/* Images are in the Banners sections CSS */
+}
+.profile-upcoming-event h4{
+	margin-bottom: 10px;
+	font-weight: normal;
+}
+
+.profile-upcoming-event h4 span{
+	font-weight: bold;
+	color: #52529b; /* Purple */
+	margin: 20px 0 10px 0;
+
+}
+
+/*==============================*/
+/*= BANNERS 
+/*==============================*/
+/* Used for header + upcoming/ previous artists */
+#enter-shikari-banner{
+	background-image: url(../img/bands/enter-shikari-banner.jpg);
+}
+#kendrick-banner{
+	background-image: url(../img/bands/kendrick-banner.jpg);
+}
+#bonjovi-banner{
+	background-image: url(../img/bands/bonjovi-banner.jpg);
+}
+#logic-banner{
+	background-image: url(../img/bands/logic-banner.jpg);
+}
+#dieantwood-banner{
+	background-image: url(../img/bands/dieantwood-banner.jpg);
+}
+
+/*==============================*/
+/*= HELP + CONTACT
+/*==============================*/
+#narrow-wrapper{
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 80px;
+	color: white;
+}
+#narrow-wrapper h1{
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+#narrow-wrapper p{
+	margin-bottom: 20px;
+	line-height: 1.5em;
+	text-align: justify;
+}
+#narrow-wrapper p a{
+	color: white;
+}
+/* Google Maps */
+#narrow-wrapper iframe{
+	width: 100%;
+	margin-bottom: 10px;
+}
+/* Contact Form */
+#contact-form input[type="text"]{
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 6px 15px;	
+}
+#contact-form textarea{
+	width: 100%;
+	font-size: 1em;
+	padding: 6px 15px;
+	margin-bottom: 10px;
+}
+#contact-form input[type="text"]::placeholder, #contact-form textarea::placeholder{
+	color: #cdcdcd;
+}
+#contact-form input[type="text"]:focus{
+	outline: 1px solid #52529b; /* Purple */
+}
+#contact-button{
+	width: 100%;
+	padding: 10px;
+	display: block;
+	margin-bottom: 10px;
+}
+#contact-info {
+	margin-bottom: 15px;
+}
+#contact-info p{
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+
+/*==============================*/
+/*= MEDIA QUERIES
+/*==============================*/
+
+/* Medium */
+@media screen and (min-width: 768px){
+    
+
+    /* GLOBAL */
+    .main-wrapper{
+		width: 90%;
+		margin: 0 auto;
+		padding-bottom: 20px;
+	}
+	#homepage-bg-hide{
+		display: block;
+	}
+	.page-heading{
+		padding-left: 100px;
+	}
+
+
+	/* HOMEPAGE */
+	#homepage-wrapper{
+		width: 60%;
+	}
+	
+	/* SEARCH RESULTS */
+	#search-header{
+		background-position: top;
+	}
+	.search-result, #profile-wrapper{
+		padding: 0 100px;
+	}
+	.search-result-item{
+		border: 1px solid #dedede;
+	}
+	.search-result-item:hover{
+		border-left: 10px solid #52529b; /* Purple */
+		transition: .3s;
+	}
+	.search-result-item-date{
+		padding: 0 30px;
+	}
+	.search-result-item-info{
+		padding: 0 30px;
+	}
+	.search-result-item-buddies{
+		border-right: 1px solid #dedede; /* spacer */
+		padding: 0 30px;
+	}
+
+	/* USER RESULTS */
+	.users-list{
+		padding: 0 100px;
+	}
+	.users-list-user{
+		width: 33.333333%;
+	}
+	.users-list-user a:hover > h2,.users-list-user a:hover > p{
+		border-left: 10px solid #52529b; /* Purple */;
+		transition: .3s;
+	}
+
+	/* HELP + CONTACT */
+	#narrow-wrapper{
+		width: 70%;
+	}
+
+	/* PROFILE */
+	#profile-buttons{
+		width: 50%;
+	}
+	.profile-upcoming-event-img{
+		height: 250px;
+	}
+
+}/* /@media */
+
+/* Large */
+@media screen and (min-width: 1200px){
+
+	/* GLOBAL */
+	.page-heading{
+		padding-left: 200px;
+	}
+
+	/* NAVBAR */
+	.navbar-right{
+		position: absolute;
+		right: 0;
+		width: 670px;
+	}
+	#home-navbar{
+		width: 290px;
+	}
+	#burger-menu{
+		display: none;
+	}
+	.menu{
+		position: absolute;
+		background-color: transparent;
+		right: 10px; 
+		height: auto;
+		top: 0;
+		transition: .5s;
+	}
+	.menu .search{
+		display: inline-block;
+		float: left;
+		margin-top: 10px;
+		padding-right: 0;
+		width: 400px;
+	}
+	.menu ul{
+		margin-top: 0;
+		float: left;
+	}
+	.menu ul li{
+		width: auto;
+		display: inline-block;
+	}
+	.menu ul li a{
+		display: inline-block;
+		width: auto;
+		padding-left: 20px;
+		border-bottom: none;
+	}
+	.menu ul li a:hover{
+		text-decoration: underline;
+	}
+	.navbar li:first-of-type{
+		border-top: none;
+	}
+	input[type=checkbox]:checked ~ .menu{ 
+		right: 0;
+		transition: .3s ease-out;
+	}
+
+	/* HOMEPAGE */
+	#homepage-wrapper{
+		width: 30%;
+	}
+	.main-wrapper{
+		width: 80%;
+	}
+
+	/* SEARCH RESULTS */
+	.search-result-item-date, .search-result-item-info, .search-result-item-buddies, {
+		padding: 0 50px;
+	}
+	.search-result, #profile-wrapper{
+		padding: 0 200px;
+	}
+
+	/* USER RESULTS */
+	.users-list{
+		padding: 0 200px;
+	}
+	.users-list-user{
+		width: 25%;
+	}
+
+	/* HELP + CONTACT */
+	#narrow-wrapper{
+		width: 40%;
+	}
+
+	/* PROFILE */
+	#profile-buttons{
+		width: 30%;
+	}
+
+}/* /@media */
+
+/* X Large */
+@media screen and (min-width: 1680px){
+
+	/* GLOBAL */
+	.main-wrapper{
+		width: 70%;
+	}
+
+	/* HOMEPAGE */
+	#homepage-wrapper{
+		width: 500px;
+	}
+	
+	/* HELP + CONTACT */
+	#narrow-wrapper{
+		width: 500px;
+	}
+	
+	/* Profile */
+	#profile-buttons{
+		width: 500px;
+	}
+
+}/* /@media */
